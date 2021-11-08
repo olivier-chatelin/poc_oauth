@@ -15,3 +15,7 @@ define('HOME_PAGE', 'home/index');
 
 // database dump file path for automatic import
 define('DB_DUMP_PATH', __DIR__ . '/../database.sql');
+
+define('GITHUB_CLIENT', 'dc37bed4efbdd799267e');
+define('REDIRECT_URI', 'http://localhost:8000/connect');
+define('GITHUB_SECRET', '84d1a02888fb01f5c6c51ac7d4cf00605d5a427e');
