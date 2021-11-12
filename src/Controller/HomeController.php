@@ -38,15 +38,19 @@ class HomeController extends AbstractController
         ]);
     }
 
-    public function connect()
+    public function connect(): void
     {
-        $logger = new GithubLogger($_GET['code']);
-        $userData = $logger->getUserData();
-        $user = $logger->getAndPersist($userData);
-        $_SESSION['user'] = $user;
-        var_dump($_SESSION);
-        return $this->twig->render('Home/connect.html.twig', [
-            'user' => $user,
-        ]);
+        if (!isset($_SESSION['user'])) {
+            $logger = new GithubLogger($_GET['code']);
+            $userData = $logger->getUserData();
+            $user = $logger->getAndPersist($userData);
+            $_SESSION['user'] = $user;
+        }
+         header('Location: /');
+    }
+    public function deconnect()
+    {
+        session_destroy();
+        header('Location: /');
     }
 }

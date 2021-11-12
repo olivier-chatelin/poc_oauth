@@ -18,7 +18,6 @@ class GithubLogger
     {
         $client = HttpClient::create();
         $formFields = [
-            'scope' => 'user:email',
             'client_id' => GITHUB_CLIENT,
             'client_secret' => GITHUB_SECRET,
             'code' => $this->code,
@@ -54,7 +53,7 @@ class GithubLogger
         $userManager = new UserManager();
         if (!$userManager->selectOneByPseudo($userData['pseudo'])) {
             $userId = $userManager->createUser($userData);
-            $user = $userManager->selectOneById($userId);
+            $user = $userManager->selectOneById((int)$userId);
         } else {
             $user = $userManager->selectOneByPseudo($userData['pseudo']);
         }

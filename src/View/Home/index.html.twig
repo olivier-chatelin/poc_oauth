@@ -1,5 +1,6 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <a href={{ url }}>Se connecter avec son compte github</a>
+    {% include '/components/_navbar.html.twig' %}
+    {{ dump(session) }}
 {% endblock %}

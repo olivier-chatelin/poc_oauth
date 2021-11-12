@@ -1,3 +1,6 @@
+### oauth flow scheme  
+![](public/assets/images/oauth-flow.png)image
+
 ### register your app in github
 [Settings -> Developper settings](https://github.com/settings/developers)  
 then define constants in config.php  
